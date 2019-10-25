@@ -2,15 +2,15 @@
 %define api.value.type { double }
 %left LEFT_PAR
 %left RIGHT_PAR
-%left MULT_TOKEN
-%left DIV_TOKEN
 %left ADD_TOKEN
 %left SUB_TOKEN
+%left MULT_TOKEN
+%left DIV_TOKEN
 %token NUMBER_TOKEN  // Numbers 
 %token ADD_TOKEN // +
 %token SUB_TOKEN // -
 %token MULT_TOKEN // *
-%token DIV_TOKEN // /
+%token DIV_TOKEN // 
 %token LEFT_PAR // (
 %token RIGHT_PAR // )
 
