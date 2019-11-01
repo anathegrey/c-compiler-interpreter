@@ -1,0 +1,33 @@
+#include <stdlib.h>
+#include "parser.h"
+#include "printAbsTree.h"
+
+void printExpr(Expr *exp) {
+  if(exp == 0)
+    yyerror("Null expression!!");
+  else if(exp -> kind == E_INTEGER)
+    printf("%d ", exp -> attr.value);
+  else if(exp -> kind == E_OPERATION) {
+    printExpr(exp -> attr.op.left);
+    printExpr(exp -> attr.op.right);
+    switch(exp -> attr.op.operator) {
+    case PLUS:
+      printf("+ ");
+      break;
+    case SUB:
+      printf("- ");
+      break;
+    case MULT:
+      printf("* ");
+      break;
+    case DIV:
+      printf("/ ");
+      break;
+    case REST:
+      printf("mod ");
+      break;
+    default: yyerror("Unknown operator!");
+    }
+  }
+  printf("\n");
+}
